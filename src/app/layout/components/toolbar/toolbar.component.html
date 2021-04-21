@@ -1,0 +1,91 @@
+<mat-toolbar class="p-0 mat-elevation-z1">
+    <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+            <button mat-icon-button class="navbar-toggle-button" *ngIf="!hiddenNavbar && !rightNavbar"
+                (click)="toggleSidebarOpen('navbar')" fxHide.gt-md>
+                <mat-icon class="secondary-text">menu</mat-icon>
+            </button>
+
+            <div class="toolbar-separator" *ngIf="!hiddenNavbar && !rightNavbar" fxHide.gt-md></div>
+
+            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="horizontalNavbar">
+                <div class="logo ml-16">
+                
+                </div>
+            </div>
+        </div>
+
+        <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="end end">
+            <!-- <button mat-button class="user-button" title="Dashboard" [routerLink]="'/apps/Terasaki/dashboard'">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-icon class="s-24">dashboard</mat-icon>
+                    <span class="username mr-12" fxHide fxShow.gt-sm>Dashboard</span>
+                </div>
+            </button>
+            <div class="toolbar-separator"></div>
+
+
+            <button mat-button class="user-button" title="Customers" [routerLink]="'/apps/Terasaki/reports'">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-icon class="s-24">description</mat-icon>
+                    <span class="username mr-12" fxHide fxShow.gt-sm>Products</span>
+                </div>
+            </button>
+            <div class="toolbar-separator"></div>
+
+            <button mat-button class="user-button" title="Work Orders" [routerLink]="'/apps/Terasaki/deliveryManagement'">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-icon class="s-24">shopping_cart</mat-icon>
+                    <span class="username mr-12" fxHide fxShow.gt-sm>Stocks</span>
+                </div>
+            </button>
+             <div class="toolbar-separator"></div> -->
+           
+            <button mat-button [matMenuTriggerFor]="userMenu" class="user-button">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    
+                    <span class="username mr-12" fxHide fxShow.gt-sm>{{userName}}</span>
+                    <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
+                </div>
+            </button>
+            <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+                <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span class="s-24">{{'MYPROFILE' | translate }}</span>
+                </button>
+                <button mat-menu-item >
+                    <mat-icon class="s-24">lock</mat-icon>
+                    <span>{{'CHANGEPASSWORD' | translate }}</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="s-24">help</mat-icon>
+                    <span>{{'HELP' | translate }}</span>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item [routerLink]="'/login'" >
+                    <mat-icon class="s-24">exit_to_app</mat-icon>
+                    <span>{{'LOGOUT' | translate }}</span>
+                </button>
+            </mat-menu>
+
+            <!-- <button mat-button [matMenuTriggerFor]="SettingMenu" class="user-button" fxLayoutAlign="start end"
+                title="Settings">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-icon class="s-24">settings</mat-icon>
+                    <span class="username mr-12" fxHide fxShow.gt-sm>Settings</span>
+                    <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
+                </div>
+            </button>
+            <mat-menu #SettingMenu="matMenu" [overlapTrigger]="false">
+                <button mat-menu-item title="Industry" [routerLink]="'/apps/settings/users'">
+                    <mat-icon class="s-24">business</mat-icon>
+                    <span>Industry</span>
+                </button>
+                <button mat-menu-item title="Category" [routerLink]="'/apps/settings/projects'">
+                    <mat-icon class="s-24">category</mat-icon>
+                    <span>Category</span>
+                </button>
+            </mat-menu> -->
+        </div>
+    </div>
+</mat-toolbar>
